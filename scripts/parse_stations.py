@@ -49,7 +49,7 @@ if __name__ == '__main__':
     outfile.write('__all__ = ["get_stn", "icao", "iata", "synop"]\n\n')
     func = """
 def get_stn(stn):
-    stn = stn.strip()
+    stn = stn.strip().upper()
     x = len(stn)
     if x == 3: return(iata[stn])
     elif x == 4: return(icao[stn])
