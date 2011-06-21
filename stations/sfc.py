@@ -4,7 +4,7 @@ __all__ = ["get_stn", "icao", "iata", "synop"]
 
 
 def get_stn(stn):
-    stn = stn.strip()
+    stn = stn.strip().upper()
     x = len(stn)
     if x == 3: return(iata[stn])
     elif x == 4: return(icao[stn])
