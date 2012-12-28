@@ -3,12 +3,16 @@
 __all__ = ["get_stn", "icao", "iata", "synop"]
 
 
-def get_stn(stn):
+def get_stn(stn, priority=False):
+    if priority:
+        ind = 3
+    else:
+        ind = -1
     stn = stn.strip().upper()
     x = len(stn)
-    if x == 3: return(iata[stn])
-    elif x == 4: return(icao[stn])
-    elif x == 5: return(synop[stn])
+    if x == 3: return(iata[stn][:ind])
+    elif x == 4: return(icao[stn][:ind])
+    elif x == 5: return(synop[stn][:ind])
     else: print('Unable to process request...')
 
 icao = {
